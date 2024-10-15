@@ -1,0 +1,27 @@
+<GridLayout rows="auto, *, auto" class="p-20">
+  <Label [text]="currentBrand.name" class="text-3xl font-bold text-center" row="0"></Label>
+  
+  <StackLayout row="1" class="m-y-20">
+    <Image [src]="currentBrand.logo" class="h-40 w-40 m-y-10"></Image>
+    
+    <Label text="Brand Colors:" class="text-xl font-semibold m-y-10"></Label>
+    <FlexboxLayout class="justify-center">
+      <Label *ngFor="let color of currentBrand.colors" 
+             [text]="color" 
+             [style.backgroundColor]="color" 
+             class="w-20 h-20 m-5 text-center vertical-align-center">
+      </Label>
+    </FlexboxLayout>
+    
+    <Label text="Brand Values:" class="text-xl font-semibold m-y-10"></Label>
+    <Label *ngFor="let value of currentBrand.values" 
+           [text]="value" 
+           class="text-lg text-center">
+    </Label>
+  </StackLayout>
+  
+  <FlexboxLayout row="2" class="justify-between">
+    <Button text="Previous" (tap)="previousBrand()" class="btn btn-primary"></Button>
+    <Button text="Next" (tap)="nextBrand()" class="btn btn-primary"></Button>
+  </FlexboxLayout>
+</GridLayout>
